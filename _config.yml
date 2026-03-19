@@ -3,6 +3,15 @@ description: Product Manager on the Azure Kubernetes Service (AKS) team with a b
 author: Ahmed Sabbour
 url: https://sabbour.me
 baseurl: ""
+twitter:
+  username: sabbour
+social:
+  name: Ahmed Sabbour
+  links:
+    - https://twitter.com/sabbour
+    - https://www.linkedin.com/in/ahmedsabbour
+    - https://github.com/sabbour
+image: /assets/images/og-default.png
 plugins:
   - jekyll-seo-tag
 exclude:
