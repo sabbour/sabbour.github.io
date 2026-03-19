@@ -24,7 +24,6 @@ Welcome to My GitHub Blog! This project is a Markdown-based blogging system desi
 - `_config.yml`: Configuration settings for the Jekyll site.
 - `Gemfile`: Ruby gems required for the blog.
 - `index.html`: The main entry point for the blog.
-- `feed.xml`: RSS feed for blog updates.
 - `package.json`: JavaScript dependencies and scripts.
 - `.github`: GitHub Actions for deployment.
 - `.gitignore`: Files to be ignored by Git.

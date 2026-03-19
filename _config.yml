@@ -4,7 +4,6 @@ author: Ahmed Sabbour
 url: https://sabbour.me
 baseurl: ""
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
 exclude:
   - Gemfile

@@ -204,17 +204,6 @@
   gap: 1.5rem;
 }
 
-.rss-button {
-  display: flex;
-  align-items: center;
-  svg {
-    width: 18px;
-    height: 18px;
-    fill: rgba(255, 255, 255, 0.7);
-  }
-  &:hover svg { fill: #fff; }
-}
-
 .post-full {
   max-width: $post-width;
   margin: 0 auto;
