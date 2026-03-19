@@ -1,67 +1,118 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:var(--hero-c1, #bbf7d0);stop-opacity:0.35"/>
-      <stop offset="100%" style="stop-color:var(--hero-c2, #dcfce7);stop-opacity:0.15"/>
-    </linearGradient>
-    <linearGradient id="g2" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:var(--hero-c3, #a7f3d0);stop-opacity:0.25"/>
-      <stop offset="100%" style="stop-color:var(--hero-c4, #d1fae5);stop-opacity:0.1"/>
-    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3eb0ef" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#3eb0ef" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
   </defs>
 
-  <!-- Topographic-style contour lines -->
-  <path d="M-50,320 Q200,280 400,300 T800,260 T1250,290" fill="none" stroke="var(--hero-stroke, #86efac)" stroke-width="1" opacity="0.2">
-    <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="12s" repeatCount="indefinite"/>
-  </path>
-  <path d="M-50,280 Q250,230 500,260 T900,220 T1250,250" fill="none" stroke="var(--hero-stroke, #86efac)" stroke-width="0.8" opacity="0.18">
-    <animateTransform attributeName="transform" type="translate" values="0,0;0,-12;0,0" dur="15s" repeatCount="indefinite"/>
-  </path>
-  <path d="M-50,240 Q300,180 550,220 T950,170 T1250,210" fill="none" stroke="var(--hero-stroke, #86efac)" stroke-width="0.6" opacity="0.15">
-    <animateTransform attributeName="transform" type="translate" values="0,0;0,-10;0,0" dur="18s" repeatCount="indefinite"/>
-  </path>
-  <path d="M-50,200 Q280,140 520,180 T880,130 T1250,170" fill="none" stroke="var(--hero-stroke, #86efac)" stroke-width="0.5" opacity="0.12">
-    <animateTransform attributeName="transform" type="translate" values="0,0;0,-6;0,0" dur="22s" repeatCount="indefinite"/>
-  </path>
-  <path d="M-50,160 Q350,100 600,140 T1000,90 T1250,130" fill="none" stroke="var(--hero-stroke, #86efac)" stroke-width="0.4" opacity="0.1">
-    <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="25s" repeatCount="indefinite"/>
-  </path>
+  <!-- Ambient glow regions -->
+  <ellipse cx="200" cy="350" rx="300" ry="200" fill="url(#glow1)">
+    <animateTransform attributeName="transform" type="translate" values="0,0;40,-20;0,0" dur="30s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="900" cy="80" rx="350" ry="220" fill="url(#glow2)">
+    <animateTransform attributeName="transform" type="translate" values="0,0;-30,25;0,0" dur="25s" repeatCount="indefinite"/>
+  </ellipse>
 
-  <!-- Soft gradient blobs -->
-  <circle cx="100" cy="300" r="200" fill="url(#g1)" opacity="0.4">
-    <animateTransform attributeName="transform" type="translate" values="0,0;30,-15;0,0" dur="20s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1000" cy="150" r="250" fill="url(#g2)" opacity="0.3">
-    <animateTransform attributeName="transform" type="translate" values="0,0;-25,20;0,0" dur="24s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Scattered dots like a data scatter plot -->
-  <circle cx="180" cy="120" r="2" fill="var(--hero-dot, #4ade80)" opacity="0.3">
-    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="420" cy="90" r="1.5" fill="var(--hero-dot, #4ade80)" opacity="0.25"/>
-  <circle cx="580" cy="180" r="2.5" fill="var(--hero-dot, #4ade80)" opacity="0.2">
-    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="7s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="750" cy="60" r="1.8" fill="var(--hero-dot, #4ade80)" opacity="0.22"/>
-  <circle cx="920" cy="200" r="2" fill="var(--hero-dot, #4ade80)" opacity="0.28">
-    <animate attributeName="opacity" values="0.28;0.55;0.28" dur="6s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1100" cy="100" r="1.5" fill="var(--hero-dot, #4ade80)" opacity="0.2"/>
-  <circle cx="340" cy="250" r="2" fill="var(--hero-dot, #4ade80)" opacity="0.18">
-    <animate attributeName="opacity" values="0.18;0.45;0.18" dur="8s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="680" cy="310" r="1.8" fill="var(--hero-dot, #4ade80)" opacity="0.15"/>
-  <circle cx="850" cy="340" r="2.2" fill="var(--hero-dot, #4ade80)" opacity="0.2">
-    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="9s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Fine grid cross marks -->
-  <g stroke="var(--hero-stroke, #86efac)" stroke-width="0.4" opacity="0.12">
-    <line x1="295" y1="145" x2="305" y2="155"/><line x1="305" y1="145" x2="295" y2="155"/>
-    <line x1="695" y1="85" x2="705" y2="95"/><line x1="705" y1="85" x2="695" y2="95"/>
-    <line x1="495" y1="325" x2="505" y2="335"/><line x1="505" y1="325" x2="495" y2="335"/>
-    <line x1="1045" y1="265" x2="1055" y2="275"/><line x1="1055" y1="265" x2="1045" y2="275"/>
-    <line x1="145" y1="55" x2="155" y2="65"/><line x1="155" y1="55" x2="145" y2="65"/>
+  <!-- Network constellation lines -->
+  <g stroke="#3eb0ef" fill="none" opacity="0.12">
+    <line x1="80" y1="90" x2="250" y2="160"/>
+    <line x1="250" y1="160" x2="400" y2="80"/>
+    <line x1="400" y1="80" x2="520" y2="200"/>
+    <line x1="520" y1="200" x2="700" y2="120"/>
+    <line x1="700" y1="120" x2="850" y2="220"/>
+    <line x1="850" y1="220" x2="1000" y2="140"/>
+    <line x1="1000" y1="140" x2="1150" y2="200"/>
+    <line x1="250" y1="160" x2="320" y2="300"/>
+    <line x1="520" y1="200" x2="600" y2="340"/>
+    <line x1="700" y1="120" x2="780" y2="40"/>
+    <line x1="850" y1="220" x2="920" y2="350"/>
+    <line x1="1000" y1="140" x2="1080" y2="60"/>
+    <line x1="80" y1="90" x2="150" y2="280"/>
+    <line x1="150" y1="280" x2="320" y2="300"/>
+    <line x1="320" y1="300" x2="600" y2="340"/>
+    <line x1="600" y1="340" x2="920" y2="350"/>
+    <line x1="400" y1="80" x2="780" y2="40"/>
+    <line x1="780" y1="40" x2="1080" y2="60"/>
   </g>
+
+  <!-- Secondary connecting lines (deeper layer) -->
+  <g stroke="#a78bfa" fill="none" opacity="0.06">
+    <line x1="80" y1="90" x2="520" y2="200"/>
+    <line x1="250" y1="160" x2="700" y2="120"/>
+    <line x1="400" y1="80" x2="850" y2="220"/>
+    <line x1="320" y1="300" x2="920" y2="350"/>
+    <line x1="150" y1="280" x2="600" y2="340"/>
+    <line x1="780" y1="40" x2="1150" y2="200"/>
+  </g>
+
+  <!-- Primary nodes (pulsing) -->
+  <g filter="url(#blur)">
+    <circle cx="250" cy="160" r="4" fill="#3eb0ef" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="520" cy="200" r="5" fill="#3eb0ef" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="850" cy="220" r="4" fill="#a78bfa" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.85;0.5" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1000" cy="140" r="4.5" fill="#3eb0ef" opacity="0.55">
+      <animate attributeName="opacity" values="0.55;0.9;0.55" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Sharp nodes -->
+  <circle cx="80" cy="90" r="2.5" fill="#3eb0ef" opacity="0.4"/>
+  <circle cx="400" cy="80" r="3" fill="#a78bfa" opacity="0.45">
+    <animate attributeName="opacity" values="0.45;0.8;0.45" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="120" r="3" fill="#3eb0ef" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;0.85;0.5" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1150" cy="200" r="2.5" fill="#a78bfa" opacity="0.35"/>
+
+  <!-- Edge nodes -->
+  <circle cx="150" cy="280" r="2" fill="#3eb0ef" opacity="0.3"/>
+  <circle cx="320" cy="300" r="2.5" fill="#a78bfa" opacity="0.35">
+    <animate attributeName="opacity" values="0.35;0.65;0.35" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="340" r="2" fill="#3eb0ef" opacity="0.3"/>
+  <circle cx="780" cy="40" r="2" fill="#3eb0ef" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="920" cy="350" r="2.5" fill="#a78bfa" opacity="0.3"/>
+  <circle cx="1080" cy="60" r="2" fill="#3eb0ef" opacity="0.25"/>
+
+  <!-- Faint orbiting ring accents (Kubernetes-inspired) -->
+  <ellipse cx="520" cy="200" rx="45" ry="18" fill="none" stroke="#3eb0ef" stroke-width="0.5" opacity="0.1" transform="rotate(-25 520 200)">
+    <animateTransform attributeName="transform" type="rotate" values="-25 520 200;335 520 200" dur="40s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="850" cy="220" rx="35" ry="14" fill="none" stroke="#a78bfa" stroke-width="0.5" opacity="0.08" transform="rotate(15 850 220)">
+    <animateTransform attributeName="transform" type="rotate" values="15 850 220;375 850 220" dur="35s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- Floating particles -->
+  <circle cx="160" cy="50" r="1" fill="#fff" opacity="0.15">
+    <animateTransform attributeName="transform" type="translate" values="0,0;10,15;0,0" dur="12s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="460" cy="30" r="0.8" fill="#fff" opacity="0.1">
+    <animateTransform attributeName="transform" type="translate" values="0,0;-8,12;0,0" dur="15s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="650" cy="370" r="1" fill="#fff" opacity="0.12">
+    <animateTransform attributeName="transform" type="translate" values="0,0;12,-10;0,0" dur="18s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1050" cy="300" r="0.8" fill="#fff" opacity="0.1">
+    <animateTransform attributeName="transform" type="translate" values="0,0;-6,8;0,0" dur="14s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="350" cy="180" r="0.8" fill="#fff" opacity="0.08">
+    <animateTransform attributeName="transform" type="translate" values="0,0;7,-5;0,0" dur="20s" repeatCount="indefinite"/>
+  </circle>
 </svg>
