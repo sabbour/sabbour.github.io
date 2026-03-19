@@ -1,0 +1,106 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $font-sans;
+  font-size: 1.6rem;
+  line-height: 1.6em;
+  color: $text;
+  background: $bg;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $text-dark;
+  font-family: $font-sans;
+  line-height: 1.15em;
+  margin: 0 0 0.4em;
+  font-weight: 600;
+}
+
+h1 { font-size: 4.2rem; }
+h2 { font-size: 2.8rem; margin-top: 1.8em; }
+h3 { font-size: 2.2rem; margin-top: 1.5em; }
+h4 { font-size: 1.8rem; }
+
+p { margin: 0 0 1.5em; }
+
+a {
+  color: $accent;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+ul, ol {
+  margin: 0 0 1.5em;
+  padding-left: 2em;
+}
+
+li { margin-bottom: 0.5em; }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+blockquote {
+  margin: 1.5em 0;
+  padding: 0 1.5em;
+  border-left: 3px solid $accent;
+  p:last-child { margin-bottom: 0; }
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $border;
+  margin: 2.5em 0;
+}
+
+code {
+  font-family: $font-mono;
+  font-size: 0.85em;
+  background: #f0f6f9;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background: $syn-pre-bg;
+  color: $syn-pre-text;
+  padding: 1.5em 2em;
+  border-radius: $radius;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  line-height: 1.5;
+  font-size: 1.4rem;
+
+  code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 1.5rem;
+
+  th, td {
+    padding: 0.6em 1em;
+    text-align: left;
+    border-bottom: 1px solid $border;
+  }
+  th { font-weight: 600; }
+}

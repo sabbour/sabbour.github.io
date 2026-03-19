@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:var(--hero-c1, #bbf7d0);stop-opacity:0.35"/>
+      <stop offset="100%" style="stop-color:var(--hero-c2, #dcfce7);stop-opacity:0.15"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:var(--hero-c3, #a7f3d0);stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:var(--hero-c4, #d1fae5);stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Topographic-style contour lines -->
+  <path d="M-50,320 Q200,280 400,300 T800,260 T1250,290" fill="none" stroke="var(--hero-stroke, #86efac)" stroke-width="1" opacity="0.2">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="12s" repeatCount="indefinite"/>
+  </path>
+  <path d="M-50,280 Q250,230 500,260 T900,220 T1250,250" fill="none" stroke="var(--hero-stroke, #86efac)" stroke-width="0.8" opacity="0.18">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-12;0,0" dur="15s" repeatCount="indefinite"/>
+  </path>
+  <path d="M-50,240 Q300,180 550,220 T950,170 T1250,210" fill="none" stroke="var(--hero-stroke, #86efac)" stroke-width="0.6" opacity="0.15">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-10;0,0" dur="18s" repeatCount="indefinite"/>
+  </path>
+  <path d="M-50,200 Q280,140 520,180 T880,130 T1250,170" fill="none" stroke="var(--hero-stroke, #86efac)" stroke-width="0.5" opacity="0.12">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-6;0,0" dur="22s" repeatCount="indefinite"/>
+  </path>
+  <path d="M-50,160 Q350,100 600,140 T1000,90 T1250,130" fill="none" stroke="var(--hero-stroke, #86efac)" stroke-width="0.4" opacity="0.1">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="25s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Soft gradient blobs -->
+  <circle cx="100" cy="300" r="200" fill="url(#g1)" opacity="0.4">
+    <animateTransform attributeName="transform" type="translate" values="0,0;30,-15;0,0" dur="20s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1000" cy="150" r="250" fill="url(#g2)" opacity="0.3">
+    <animateTransform attributeName="transform" type="translate" values="0,0;-25,20;0,0" dur="24s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Scattered dots like a data scatter plot -->
+  <circle cx="180" cy="120" r="2" fill="var(--hero-dot, #4ade80)" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="420" cy="90" r="1.5" fill="var(--hero-dot, #4ade80)" opacity="0.25"/>
+  <circle cx="580" cy="180" r="2.5" fill="var(--hero-dot, #4ade80)" opacity="0.2">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="750" cy="60" r="1.8" fill="var(--hero-dot, #4ade80)" opacity="0.22"/>
+  <circle cx="920" cy="200" r="2" fill="var(--hero-dot, #4ade80)" opacity="0.28">
+    <animate attributeName="opacity" values="0.28;0.55;0.28" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1100" cy="100" r="1.5" fill="var(--hero-dot, #4ade80)" opacity="0.2"/>
+  <circle cx="340" cy="250" r="2" fill="var(--hero-dot, #4ade80)" opacity="0.18">
+    <animate attributeName="opacity" values="0.18;0.45;0.18" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="680" cy="310" r="1.8" fill="var(--hero-dot, #4ade80)" opacity="0.15"/>
+  <circle cx="850" cy="340" r="2.2" fill="var(--hero-dot, #4ade80)" opacity="0.2">
+    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="9s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Fine grid cross marks -->
+  <g stroke="var(--hero-stroke, #86efac)" stroke-width="0.4" opacity="0.12">
+    <line x1="295" y1="145" x2="305" y2="155"/><line x1="305" y1="145" x2="295" y2="155"/>
+    <line x1="695" y1="85" x2="705" y2="95"/><line x1="705" y1="85" x2="695" y2="95"/>
+    <line x1="495" y1="325" x2="505" y2="335"/><line x1="505" y1="325" x2="495" y2="335"/>
+    <line x1="1045" y1="265" x2="1055" y2="275"/><line x1="1055" y1="265" x2="1045" y2="275"/>
+    <line x1="145" y1="55" x2="155" y2="65"/><line x1="155" y1="55" x2="145" y2="65"/>
+  </g>
+</svg>

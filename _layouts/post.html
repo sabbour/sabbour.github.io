@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<header class="site-header post-page-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+            <div class="site-nav-left">
+                <a href="{{ site.baseurl }}/" class="site-nav-logo">{{ site.title }}</a>
+            </div>
+            <div class="site-nav-right">
+                <div class="social-links">
+                    <a href="https://twitter.com/sabbour" title="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="https://linkedin.com/in/ahmedsabbour" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="https://github.com/sabbour" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github fa-lg"></i></a>
+                    <a href="https://stackoverflow.com/users/47582/sabbour" title="StackOverflow" target="_blank" rel="noopener"><i class="fab fa-stack-overflow fa-lg"></i></a>
+                </div>
+                <a class="rss-button" href="https://feedly.com/i/subscription/feed/{{ site.url }}/feed.xml" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg></a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="site-main outer">
+    <div class="inner">
+        <article class="post-full">
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %B %Y" | upcase }}</time>
+                    {% if page.tags.size > 0 %}
+                    <span class="date-divider">/</span>
+                    {% for tag in page.tags %}<span class="post-full-meta-tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}
+                    {% endif %}
+                </section>
+                <h1 class="post-full-title">{{ page.title }}</h1>
+            </header>
+            <section class="post-full-content">
+                <div class="post-content">
+                    {{ content }}
+                </div>
+            </section>
+        </article>
+    </div>
+</main>
+</main>

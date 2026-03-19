@@ -1,0 +1,26 @@
+{
+  "name": "my-github-blog",
+  "version": "1.0.0",
+  "description": "A Markdown-based blog system hosted on GitHub Pages with Ghost import functionality.",
+  "main": "index.js",
+  "scripts": {
+    "start": "bundle exec jekyll serve",
+    "build": "bundle exec jekyll build",
+    "import": "node scripts/ghost-import/import.js"
+  },
+  "dependencies": {
+    "axios": "^1.13.6",
+    "markdown-it": "^12.0.6"
+  },
+  "devDependencies": {
+    "sass": "^1.32.0"
+  },
+  "keywords": [
+    "blog",
+    "markdown",
+    "github-pages",
+    "ghost-import"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

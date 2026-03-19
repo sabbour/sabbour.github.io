@@ -1,0 +1,17 @@
+title: "sabbour."
+description: The views and opinions expressed here are mine, and not those of my employer.
+author: Ahmed Sabbour
+url: https://sabbour.me
+baseurl: ""
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - package.json
+  - package-lock.json
+  - scripts
+  - pages/tags.md

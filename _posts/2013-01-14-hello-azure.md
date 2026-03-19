@@ -1,0 +1,9 @@
+---
+layout: post
+title: "Hello Azure!"
+date: 2013-01-14T03:30:00.000Z
+---
+
+<!--kg-card-begin: markdown--><p>Hello, my name is Ahmed Sabbour. I'm a technology geek, I love taking photos <img style="vertical-align: middle;" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSAfMbYtqJBQldrfcmG0orYlD6UKz0xAhgRLuywmZbHwQpZoMZm" alt="flickr" width="20" height="20" /><a href="http://www.flickr.com/photos/sabbour"> http://www.flickr.com/photos/sabbour</a> and I love cooking<img style="vertical-align: middle;" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQqNeeALMz0g82Q5LQVPaez2lSlURtP94yjNTBfzZVTesZGUKhE" alt="pinterest" width="30" height="20" /> <a href="http://pinterest.com/sabbour">http://pinterest.com/sabbour</a>. I'm also working as a Developer Evangelist for Microsoft and I'll be your host for Windows Azure related blog posts on the Africa Apps blog.<br />You'll find me posting frequently about common and uncommon Azure scenarios that I find interesting, tips and tricks, etc.. I'm really excited about what you can do with Azure and I'm really looking forward to seeing what you build with it.</p>
+<p>If you need help or want to chat regarding Windows Azure and ASP.net MVC and .NET in general, feel free to follow and engage me on my twitter account <img style="vertical-align: middle;" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR7QZtDDAC8-NBHyZuBRRz9QTyTOWtZGXd4669jUW9Na2RjxGCbeQ" alt="twitter" width="25" height="25" /><a title="@sabbour" href="http://twitter.com/sabbour">@sabbour</a> and I'll be more than happy to chat with you.</p>
+<p>Until then, have a great day.</p><blockquote class='note original-post'><div><p><strong>Note: </strong>This post originally appeared on my MSDN blog at 		<a href='http://blogs.msdn.com/b/africaapps/archive/2013/01/14/hello-azure.aspx'>http://blogs.msdn.com/b/africaapps/archive/2013/01/14/hello-azure.aspx</a></p></div></blockquote><!--kg-card-end: markdown-->

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Your Blog Title</title>
+    <link>https://yourblogurl.com</link>
+    <description>Your blog description goes here.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 GMT</lastBuildDate>
+    <pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate>
+    <ttl>1800</ttl>
+
+    <item>
+      <title>Welcome</title>
+      <link>https://yourblogurl.com/posts/2024-01-01-welcome</link>
+      <description>This is the welcome post for the blog.</description>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">2024-01-01-welcome</guid>
+    </item>
+
+    <!-- Additional items will be added here as new posts are created -->
+    
+  </channel>
+</rss>

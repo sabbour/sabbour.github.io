@@ -1,0 +1,22 @@
+.highlight {
+  background: #{$syn-pre-bg};
+  color: #{$syn-pre-text};
+  border-radius: $radius;
+  margin: 1.8em 0;
+
+  pre { margin: 0; }
+
+  // Rouge token classes
+  .k, .kd, .kn, .kp, .kr, .kt { color: $syn-keyword; }
+  .s, .s1, .s2, .se, .sh, .sx { color: $syn-string; }
+  .c, .c1, .cm, .cp, .cs       { color: $syn-comment; font-style: italic; }
+  .nf, .nx                      { color: $syn-function; }
+  .vi, .nv, .vc, .vg           { color: $syn-variable; }
+  .m, .mi, .mf, .mh, .mo      { color: $syn-number; }
+  .na                           { color: $syn-function; }
+  .nb                           { color: #f9e2af; }
+  .no                           { color: #fab387; }
+  .o, .ow                       { color: #89dceb; }
+  .p                             { color: #{$syn-pre-text}; }
+  .err                           { color: $syn-variable; }
+}
