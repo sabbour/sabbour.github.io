@@ -325,64 +325,48 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: $text-secondary;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.6rem;
 }
 
 .share-links {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 1rem;
 
   a, button {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    padding: 0.7em 1.4em;
+    gap: 0.8rem;
+    padding: 10px 20px;
     border-radius: 100px;
-    font-size: 1.3rem;
+    font-size: 14px;
     font-weight: 500;
     font-family: $font-sans;
     text-decoration: none;
-    border: 1px solid $border;
+    border: 1.5px solid $border;
     background: $white;
     color: $text-secondary;
     cursor: pointer;
     transition: all 0.2s ease;
+    line-height: 1;
 
-    i { font-size: 1.4rem; }
+    i { font-size: 16px; }
 
     &:hover {
-      border-color: transparent;
-      color: $white;
+      border-color: $text-dark;
+      color: $text-dark;
     }
-  }
-
-  .share-x:hover {
-    background: #000;
-  }
-
-  .share-linkedin:hover {
-    background: #0a66c2;
-  }
-
-  .share-bluesky:hover {
-    background: #0085ff;
   }
 
   .share-copy {
-    &:hover {
-      background: $text-dark;
-    }
-
     &.copied {
       background: #2ecc71;
-      border-color: transparent;
+      border-color: #2ecc71;
       color: $white;
-
-      i::before { content: "\f00c"; } // fa-check
+      i::before { content: "\f00c"; }
       span { font-size: 0; }
-      &::after { content: "Copied!"; font-size: 1.3rem; }
+      &::after { content: "Copied!"; font-size: 14px; }
     }
   }
 }

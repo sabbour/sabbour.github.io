@@ -7,9 +7,6 @@
         <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url | uri_escape }}" target="_blank" rel="noopener" title="Share on LinkedIn" class="share-linkedin">
             <i class="fab fa-linkedin-in"></i><span>Share</span>
         </a>
-        <a href="https://bsky.app/intent/compose?text={{ page.title | uri_escape }}%20{{ site.url }}{{ page.url | uri_escape }}" target="_blank" rel="noopener" title="Share on Bluesky" class="share-bluesky">
-            <i class="fab fa-bluesky"></i><span>Post</span>
-        </a>
         <button class="share-copy" onclick="navigator.clipboard.writeText('{{ site.url }}{{ page.url }}');this.classList.add('copied');setTimeout(()=>this.classList.remove('copied'),2000)" title="Copy link">
             <i class="fas fa-link"></i><span>Copy link</span>
         </button>
