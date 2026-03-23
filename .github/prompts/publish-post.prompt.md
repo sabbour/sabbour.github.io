@@ -1,33 +1,33 @@
 ---
-description: "Move a reviewed draft from _drafts/ to _posts/ with today's date. Renames the file, updates the frontmatter date, and verifies the result."
+description: "Publish a draft blog post by merging its draft branch into main. Reviews the post, updates the date, and merges."
 agent: "agent"
 tools: [read, search, edit, terminal]
-argument-hint: "Filename of the draft to publish (e.g. my-new-post.md)"
+argument-hint: "Branch name or post slug (e.g. draft/running-llms-on-aks)"
 ---
 
-Publish a blog post by moving it from `_drafts/` to `_posts/`.
+Publish a blog post by merging its `draft/<slug>` branch into `main`.
 
 ## Steps
 
-1. **Identify the draft.** The user provides a draft filename (with or without `.md`). Find it in the `_drafts/` directory. If the user doesn't specify a file and there is only one draft, use that one. If multiple drafts exist, list them and ask the user to pick.
+1. **Identify the draft branch.** The user provides a branch name or slug. If not specified, list branches matching `draft/*` and ask the user to pick. Switch to the draft branch.
 
-2. **Run the blog-reviewer agent.** Before publishing, review the draft against the [blog-reviewer agent](./../agents/blog-reviewer.agent.md) checklist. If there are blocking issues (missing required frontmatter fields, broken code blocks), fix them before proceeding. Report any fixes made.
+2. **Find the post file.** Look for the new or modified `.md` file in `_posts/` on this branch.
 
-3. **Determine the publish date.** Use today's date (`YYYY-MM-DD`) unless the user specifies a different date. If the draft filename already starts with a date (`YYYY-MM-DD-`), strip it and re-add today's date.
+3. **Run the blog-reviewer agent.** Review the post against the [blog-reviewer agent](./../agents/blog-reviewer.agent.md) checklist. If there are blocking issues (missing required frontmatter fields, broken code blocks), fix them and commit before proceeding. Report any fixes made.
 
-4. **Build the target filename.** Format: `YYYY-MM-DD-slug.md` where `slug` is the slug portion of the draft filename (lowercase, hyphenated). Place the file in `_posts/`.
+4. **Update the publish date.** Set the `date` frontmatter field to today's date in ISO 8601 format (`YYYY-MM-DDTHH:MM:SS.000Z`). Keep the time as `00:00:00.000Z` unless the user specifies otherwise. If the filename date prefix doesn't match today, rename the file to use today's date. Commit any changes.
 
-5. **Update frontmatter.** Set the `date` field in the YAML frontmatter to the publish date in ISO 8601 format (`YYYY-MM-DDTHH:MM:SS.000Z`). Keep the time as `00:00:00.000Z` unless the user specifies otherwise.
+5. **Merge into main.** Switch to `main`, merge the draft branch (use `--no-ff` for a merge commit), and confirm the merge succeeded.
 
-6. **Move the file.** Terminal `mv` can silently fail. Use this reliable approach instead:
-   a. Read the full contents of `_drafts/<old-name>.md`.
-   b. Create `_posts/<YYYY-MM-DD-slug>.md` with the exact same contents (use the create_file tool).
-   c. Verify the new file exists in `_posts/` using file_search.
-   d. Delete the original draft. Try `rm _drafts/<old-name>.md` via terminal. If the terminal is unavailable, ask the user to delete it manually.
+6. **Push.** Push `main` to origin to publish the post.
 
-7. **Verify.** Confirm using file_search (not terminal):
-   - The file exists in `_posts/` with the correct name.
-   - The `date` frontmatter field matches the target date.
-   - The original file no longer exists in `_drafts/`.
+7. **Clean up.** Delete the draft branch locally and remotely after pushing.
 
-8. **Report.** Tell the user the post has been published and show the final path.
+8. **Verify.** Confirm:
+   - You are on `main`.
+   - The post file exists in `_posts/` with the correct date-prefixed filename.
+   - The `date` frontmatter field matches the publish date.
+   - The draft branch has been deleted.
+   - The push succeeded.
+
+9. **Report.** Tell the user the post has been published and show the final path.

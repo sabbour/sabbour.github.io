@@ -77,12 +77,13 @@ Use the [blog post template](./../templates/blog-post-template.md) as the struct
 
 ## Process
 
-1. Read the [blog post template](./../templates/blog-post-template.md) to understand the expected structure.
-2. Gather context from the user's input (fetch repo READMEs, read linked files, or work from the provided outline).
-3. Draft the post in Markdown following the template structure and all writing rules above.
-4. Save the file to `_drafts/` with the naming convention `YYYY-MM-DD-slug.md` (lowercase, hyphenated slug derived from the title).
-5. After saving, tell the user they can run `@blog-reviewer` on the draft to verify it.
+1. **Create a branch.** Create a new Git branch named `draft/<slug>` (e.g., `draft/running-llms-on-aks`) from the current branch. Switch to it before writing.
+2. Read the [blog post template](./../templates/blog-post-template.md) to understand the expected structure.
+3. Gather context from the user's input (fetch repo READMEs, read linked files, or work from the provided outline).
+4. Draft the post in Markdown following the template structure and all writing rules above.
+5. Save the file directly to `_posts/` with the naming convention `YYYY-MM-DD-slug.md` (lowercase, hyphenated slug derived from the title).
+6. After saving, tell the user they can run `@blog-reviewer` on the post to verify it, and remind them to merge the branch when ready to publish.
 
 ## Output
 
-A single Markdown file saved to `_drafts/`. Do not create multiple files. Do not modify existing posts unless asked.
+A single Markdown file saved to `_posts/` on the `draft/<slug>` branch. Do not create multiple files. Do not modify existing posts unless asked.
