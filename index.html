@@ -25,6 +25,8 @@ title: Home
                         </section>
                     </a>
                     <footer class="post-card-meta">
+                        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+                        <span class="post-card-meta-separator">·</span>
                         <span class="reading-time">{{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
                     </footer>
                 </div>
