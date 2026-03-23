@@ -19,9 +19,13 @@ Publish a blog post by moving it from `_drafts/` to `_posts/`.
 
 5. **Update frontmatter.** Set the `date` field in the YAML frontmatter to the publish date in ISO 8601 format (`YYYY-MM-DDTHH:MM:SS.000Z`). Keep the time as `00:00:00.000Z` unless the user specifies otherwise.
 
-6. **Move the file.** Use `mv` to move the draft from `_drafts/<old-name>.md` to `_posts/<YYYY-MM-DD-slug>.md`.
+6. **Move the file.** Terminal `mv` can silently fail. Use this reliable approach instead:
+   a. Read the full contents of `_drafts/<old-name>.md`.
+   b. Create `_posts/<YYYY-MM-DD-slug>.md` with the exact same contents (use the create_file tool).
+   c. Verify the new file exists in `_posts/` using file_search.
+   d. Delete the original draft. Try `rm _drafts/<old-name>.md` via terminal. If the terminal is unavailable, ask the user to delete it manually.
 
-7. **Verify.** Confirm:
+7. **Verify.** Confirm using file_search (not terminal):
    - The file exists in `_posts/` with the correct name.
    - The `date` frontmatter field matches the target date.
    - The original file no longer exists in `_drafts/`.
