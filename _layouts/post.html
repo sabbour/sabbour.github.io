@@ -13,7 +13,7 @@ layout: default
             </div>
             <div class="site-nav-right">
                 <div class="social-links">
-                    <a href="https://twitter.com/sabbour" title="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="https://twitter.com/sabbour" title="X (Twitter)" target="_blank" rel="noopener"><i class="fab fa-x-twitter fa-lg"></i></a>
                     <a href="https://linkedin.com/in/ahmedsabbour" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg"></i></a>
                     <a href="https://github.com/sabbour" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github fa-lg"></i></a>
                     <a href="https://stackoverflow.com/users/47582/sabbour" title="StackOverflow" target="_blank" rel="noopener"><i class="fab fa-stack-overflow fa-lg"></i></a>
@@ -41,27 +41,16 @@ layout: default
                 <img src="{{ page.image }}" alt="{{ page.title }}">
             </figure>
             {% endif %}
+            <div class="post-full-share post-full-share--top">
+                {% include share.html %}
+            </div>
             <section class="post-full-content">
                 <div class="post-content">
                     {{ content }}
                 </div>
             </section>
-            <footer class="post-full-share">
-                <span class="share-label">Share this post</span>
-                <div class="share-links">
-                    <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url | uri_escape }}&text={{ page.title | uri_escape }}" target="_blank" rel="noopener" title="Share on X (Twitter)">
-                        <i class="fab fa-x-twitter fa-lg"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url | uri_escape }}" target="_blank" rel="noopener" title="Share on LinkedIn">
-                        <i class="fab fa-linkedin fa-lg"></i>
-                    </a>
-                    <a href="https://bsky.app/intent/compose?text={{ page.title | uri_escape }}%20{{ site.url }}{{ page.url | uri_escape }}" target="_blank" rel="noopener" title="Share on Bluesky">
-                        <i class="fab fa-bluesky fa-lg"></i>
-                    </a>
-                    <button class="share-copy-link" onclick="navigator.clipboard.writeText('{{ site.url }}{{ page.url }}');this.querySelector('i').className='fas fa-check fa-lg';setTimeout(()=>this.querySelector('i').className='fas fa-link fa-lg',2000)" title="Copy link">
-                        <i class="fas fa-link fa-lg"></i>
-                    </button>
-                </div>
+            <footer class="post-full-share post-full-share--bottom">
+                {% include share.html %}
             </footer>
         </article>
     </div>

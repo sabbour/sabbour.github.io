@@ -6,8 +6,6 @@ description: I moved my blog from Ghost to Jekyll on GitHub Pages. It fits how I
 image: /assets/images/2026-03-23-restarting-my-blog-from-ghost-to-github-pages/hero.png
 tags:
   - blogging
-  - github-pages
-  - jekyll
 ---
 
 I'm restarting my blog. It's been a while since I've published anything here, and it's time to change that. I've moved from Ghost to GitHub Pages, and I'm excited about what's ahead.
