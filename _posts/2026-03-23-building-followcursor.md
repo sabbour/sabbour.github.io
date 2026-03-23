@@ -5,7 +5,7 @@ date: 2026-03-23T00:00:00.000Z
 description: I built a Windows screen recorder that follows your cursor with smooth cinematic zoom. Here's how it works under the hood.
 image: /assets/images/2026-03-23-building-followcursor/hero.png
 tags:
-  - python
+  - ai-assisted
   - open-source
   - developer-tools
 ---
