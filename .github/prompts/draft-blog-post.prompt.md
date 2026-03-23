@@ -82,8 +82,10 @@ Use the [blog post template](./../templates/blog-post-template.md) as the struct
 3. Gather context from the user's input (fetch repo READMEs, read linked files, or work from the provided outline).
 4. Draft the post in Markdown following the template structure and all writing rules above.
 5. Save the file directly to `_posts/` with the naming convention `YYYY-MM-DD-slug.md` (lowercase, hyphenated slug derived from the title).
-6. After saving, tell the user they can run `@blog-reviewer` on the post to verify it, and remind them to merge the branch when ready to publish.
+6. Commit the new post on the `draft/<slug>` branch.
+7. **Merge the branch.** Switch back to the original branch, merge `draft/<slug>` into it, and delete the draft branch.
+8. After merging, tell the user they can run `@blog-reviewer` on the post to verify it.
 
 ## Output
 
-A single Markdown file saved to `_posts/` on the `draft/<slug>` branch. Do not create multiple files. Do not modify existing posts unless asked.
+A single Markdown file saved to `_posts/` on the original branch (merged from `draft/<slug>`). Do not create multiple files. Do not modify existing posts unless asked.

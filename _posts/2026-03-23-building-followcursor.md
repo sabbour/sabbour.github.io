@@ -7,7 +7,7 @@ image: /assets/images/2026-03-23-building-followcursor/hero.png
 tags:
   - ai-assisted
   - open-source
-  - developer-tools
+  - dev-tools
 ---
 
 I record a lot of demos and tutorials. Every time, the same problem: the interesting part of the screen is tiny, buried in a sea of desktop. Viewers squint at a 1080p recording trying to find where I clicked. I wanted a tool that automatically zooms into what I'm doing and follows my cursor with smooth, cinematic movement. So I built one.
