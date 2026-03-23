@@ -299,6 +299,54 @@
   border-top: 1px solid $border;
 }
 
+.post-full-share {
+  max-width: $post-width;
+  margin: 3rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid $border;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.share-label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: $text-secondary;
+  white-space: nowrap;
+}
+
+.share-links {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+
+  a, button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    background: #f0f6f9;
+    color: $text-secondary;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+
+    &:hover {
+      background: $accent;
+      color: #fff;
+    }
+  }
+
+  button {
+    font-size: inherit;
+    padding: 0;
+  }
+}
+
 .post-tags {
   display: flex;
   flex-wrap: wrap;
