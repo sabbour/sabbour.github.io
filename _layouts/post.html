@@ -9,7 +9,7 @@ layout: default
     <div class="inner">
         <nav class="site-nav">
             <div class="site-nav-left">
-                <a href="{{ site.baseurl }}/" class="site-nav-logo">{{ site.title }}</a>
+                <h1 class="site-title"><a href="{{ site.baseurl }}/" class="site-nav-logo">{{ site.title }}</a></h1>
             </div>
             <div class="site-nav-right">
                 <div class="social-links">
@@ -20,13 +20,8 @@ layout: default
                 </div>
             </div>
         </nav>
-    </div>
-</header>
-
-<main class="site-main outer">
-    <div class="inner">
-        <article class="post-full">
-            <header class="post-full-header">
+        <div class="post-hero-header">
+            <div class="post-hero-text">
                 <section class="post-full-meta">
                     <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %B %Y" | upcase }}</time>
                     {% if page.tags.size > 0 %}
@@ -35,12 +30,19 @@ layout: default
                     {% endif %}
                 </section>
                 <h1 class="post-full-title">{{ page.title }}</h1>
-            </header>
+            </div>
             {% if page.image %}
-            <figure class="post-full-image">
+            <figure class="post-hero-image">
                 <img src="{{ page.image }}" alt="{{ page.title }}">
             </figure>
             {% endif %}
+        </div>
+    </div>
+</header>
+
+<main class="site-main outer">
+    <div class="inner">
+        <article class="post-full">
             <div class="post-full-share post-full-share--top">
                 {% include share.html %}
             </div>

@@ -12,13 +12,12 @@
 .site-header {
   background: $header-bg;
   color: #fff;
-  padding: 4vw 0;
+  padding-top: 1.2rem;
+  padding-bottom: 4vw;
   position: relative;
   overflow: hidden;
 
   .inner {
-    display: flex;
-    flex-direction: column;
     position: relative;
     z-index: 1;
   }
@@ -46,7 +45,7 @@
   padding: 2rem 2.5rem;
   display: inline-block;
   max-width: 50%;
-  margin-bottom: 2rem;
+  margin-top: 4vw;
 }
 
 .site-title {
@@ -60,41 +59,29 @@
 }
 
 .site-description {
-  font-size: 1.4rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0.5rem 0 0;
-}
-
-.site-description {
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0.3rem 0 0;
+  font-size: 2rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 0.4rem;
 }
 
 .site-disclaimer {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0.8rem 0 0;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
 }
 
 // ─── Nav ─────────────────────────────────────────────
 .site-nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
 
   a {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.3rem;
     text-decoration: none;
-    &:hover { color: #fff; text-decoration: none; }
-  }
-
-  a.site-nav-logo {
-    font-size: 2.8rem;
+    &:hover { text-decoration: none; }
   }
 }
 
@@ -195,18 +182,51 @@
 
 // ─── Single Post ─────────────────────────────────────
 .post-page-header {
-  padding: 1.2rem 0;
+  padding-bottom: 0;
+}
 
-  .inner {
-    display: block;
-    flex-direction: unset;
-  }
+.post-hero-header {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 4vw;
+  padding-bottom: 5vw;
+}
 
-  .site-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.post-hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.post-hero-image {
+  flex: 0 0 320px;
+  margin: 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $radius;
   }
+}
+
+.post-page-header .post-full-meta {
+  margin: 0 0 1.5rem;
+
+  time {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.post-page-header .post-full-meta-tag {
+  color: $accent;
+}
+
+.post-page-header .date-divider {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.post-page-header .post-full-title {
+  color: #fff;
 }
 
 .site-nav-left {
@@ -230,14 +250,8 @@
 }
 
 .post-full {
-  max-width: $post-width;
   margin: 0 auto;
-  padding: 6vw 0;
-}
-
-.post-full-header {
-  text-align: center;
-  margin-bottom: 3.5rem;
+  padding: 1.5rem 0 6vw;
 }
 
 .post-full-meta {
@@ -272,8 +286,8 @@
 }
 
 .post-full-content {
-  max-width: $post-width;
-  margin: 0 auto;
+  //max-width: $post-width;
+  //margin: 0 auto;
 }
 
 .post-content {
@@ -501,8 +515,30 @@
   }
 
   .site-nav {
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .site-nav-logo {
+    font-size: 2.2rem;
+  }
+
+  .post-full {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .post-full-title {
+    font-size: 3.2rem;
+  }
+
+  .post-hero-header {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .post-hero-image {
+    flex: 0 0 auto;
+    max-width: 280px;
   }
 
   .archive-item {
