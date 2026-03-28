@@ -12,7 +12,8 @@
 .site-header {
   background: $header-bg;
   color: #fff;
-  padding: 4vw 0;
+  padding-top: 4vw;
+  padding-bottom: 4vw;
   position: relative;
   overflow: hidden;
 
@@ -107,7 +108,8 @@
 
 // ─── Main content ────────────────────────────────────
 .site-main {
-  padding: 4vw 0;
+  padding-top: 4vw;
+  padding-bottom: 4vw;
 }
 
 // ─── Post Feed (card grid) ───────────────────────────
@@ -191,7 +193,8 @@
 
 // ─── Single Post ─────────────────────────────────────
 .post-page-header {
-  padding: 1.2rem 0;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
 
   .inner {
     display: block;
