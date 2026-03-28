@@ -7,13 +7,13 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 100%;
 }
 
 body {
   font-family: $font-sans;
-  font-size: 1.6rem;
-  line-height: 1.6em;
+  font-size: .875rem;
+  line-height: 1.6;
   color: $text;
   background: $bg;
   -webkit-font-smoothing: antialiased;
@@ -22,15 +22,15 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: $text-dark;
   font-family: $font-sans;
-  line-height: 1.15em;
+  line-height: 1.15;
   margin: 0 0 0.4em;
   font-weight: 600;
 }
 
-h1 { font-size: 4.2rem; }
-h2 { font-size: 2.8rem; margin-top: 1.8em; }
-h3 { font-size: 2.2rem; margin-top: 1.5em; }
-h4 { font-size: 1.8rem; }
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.5rem; margin-top: 1.8em; }
+h3 { font-size: 1.25rem; margin-top: 1.5em; }
+h4 { font-size: 1.125rem; }
 
 p { margin: 0 0 1.5em; }
 
@@ -81,7 +81,7 @@ pre {
   overflow-x: auto;
   margin: 1.5em 0;
   line-height: 1.5;
-  font-size: 1.4rem;
+  font-size: 0.8125rem;
 
   code {
     background: none;
@@ -95,7 +95,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5em 0;
-  font-size: 1.5rem;
+  font-size: 0.8125rem;
 
   th, td {
     padding: 0.6em 1em;
