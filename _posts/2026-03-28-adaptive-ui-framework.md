@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducing Adaptive UI, a framework for building conversational AI interfaces
+title: "Adaptive UI: experimenting with a framework where an LLM drives the interface"
 date: 2026-03-28T00:00:00.000Z
 description: Adaptive UI is a React framework where an LLM agent drives the UI, generating forms, choices, and interactive components in a multi-turn conversation.
 image: /assets/images/2026-03-28-adaptive-ui-framework/hero.png

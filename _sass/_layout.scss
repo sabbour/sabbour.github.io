@@ -322,6 +322,75 @@
   border-top: 1px solid $border;
 }
 
+// ─── Share Bar ───────────────────────────────────────
+.share-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: .75rem;
+  color: $text-secondary;
+}
+
+.share-label {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.share-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.share-links a,
+.share-links button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 100px;
+  border: 1px solid $border;
+  background: $white;
+  color: $text-secondary;
+  font-size: .75rem;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+  &:hover {
+    background: #f0f6f9;
+    color: $text-dark;
+    border-color: darken($border, 10%);
+    text-decoration: none;
+  }
+
+  i {
+    font-size: .8125rem;
+  }
+}
+
+.share-copy.copied {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-color: #a5d6a7;
+}
+
+.post-full-share {
+  max-width: $post-width;
+  margin: 0 auto;
+}
+
+.post-full-share--top {
+  margin-bottom: 1.5rem;
+}
+
+.post-full-share--bottom {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid $border;
+}
+
 .post-tags {
   display: flex;
   flex-wrap: wrap;
@@ -428,6 +497,10 @@
 }
 
 @media (max-width: 600px) {
+  .outer {
+    padding: 0 1.25rem;
+  }
+
   .post-card {
     flex: 0 1 100%;
   }
