@@ -17,7 +17,7 @@ Publish a blog post by merging its `draft/<slug>` branch into `main`.
 
 4. **Update the publish date.** Set the `date` frontmatter field to today's date in ISO 8601 format (`YYYY-MM-DDTHH:MM:SS.000Z`). Keep the time as `00:00:00.000Z` unless the user specifies otherwise. If the filename date prefix doesn't match today, rename the file to use today's date. Commit any changes.
 
-5. **Merge into main.** Switch to `main`, merge the draft branch (use `--no-ff` for a merge commit), and confirm the merge succeeded.
+5. **Merge into main.** Switch to `main`, merge the draft branch using `git merge --ff-only`. If the merge cannot fast-forward, rebase the draft branch onto `main` first, then retry. Confirm the merge succeeded.
 
 6. **Push.** Push `main` to origin to publish the post.
 

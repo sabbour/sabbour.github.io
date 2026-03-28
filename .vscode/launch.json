@@ -3,11 +3,11 @@
   "configurations": [
     {
       "name": "Jekyll: Serve",
-      "type": "node-terminal",
+      "type": "shell",
       "request": "launch",
       "command": "bundle exec jekyll serve --livereload",
       "serverReadyAction": {
-        "pattern": "Server address: (https?://[\\S]+)",
+        "pattern": "Server address: (https?://[^ ]+)",
         "uriFormat": "%s",
         "action": "openExternally"
       }
