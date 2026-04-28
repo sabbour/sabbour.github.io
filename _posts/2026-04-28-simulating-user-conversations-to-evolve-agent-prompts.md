@@ -11,7 +11,7 @@ tags:
   - copilot-cli
 ---
 
-I sat down to rewrite a system prompt for one of my agents and realised I had no idea whether the new prompt would actually produce the conversation I wanted. The framework documents said what the agent *should* do. The current prompt said what the agent currently *did*. But the gap between the two was where every interesting failure lives, and I couldn't see it just by reading either.
+I sat down to rewrite a system prompt for one of my agents and realized I had no idea whether the new prompt would actually produce the conversation I wanted. The framework documents said what the agent *should* do. The current prompt said what the agent currently *did*. But the gap between the two was where every interesting failure lives, and I couldn't see it just by reading either.
 
 So before touching any prompts, I role-played 12 conversations.
 
@@ -29,17 +29,17 @@ Three problems compound:
 
 ## Where this started
 
-I didn't sit down with a methodology in mind. The technique came out of a working session where I was deep in a multi-agent rewrite and asked the agent I was working with:
+I didn't sit down with a methodology in mind. The technique came out of a working session where I was mid-way through a multi-agent rewrite and asked the agent I was working with:
 
 > Put on the hats of two people, a developer trying to deploy an app, and you, the system. Imagine the conversation, simulate multiple ones, and use that as guidance for the prompts.
 
 The first response was a stack of authored sample dialogues. They read fine. They were also useless. The agent had written both sides of each conversation top-down, with the design docs as the input, so the personas always asked the questions the system was good at answering. Nothing surprising came out.
 
-I pushed back: "Did you actually run the conversation sims?" The honest answer was no. The fix was to make each simulation a separate sub-agent invocation with strict turn-by-turn rules and a persona who had to push back at least twice. Same setup, different mechanics. The transcripts that came back were emergent, and they surfaced patterns the authored exemplars had hidden.
+I pushed back: "Did you actually run the conversation sims?" The honest answer was no. The fix was to make each simulation a separate sub-agent invocation with strict turn-by-turn rules and a persona who had to push back at least twice. Same setup, different mechanics. The transcripts that came back were emergent, and they surfaced patterns the authored examples had hidden.
 
 ## The technique: role-play first, rewrite second
 
-Before touching prompts, I ran 12 high-fidelity simulations. Each was a complete user-system dialogue across a different persona: a hobbyist deploying their first frontend app, a startup engineer migrating from one cloud platform to another, a platform engineer integrating into an enterprise infrastructure-as-code monorepo, a data scientist wrapping a fine-tuned model, and so on.
+Before touching prompts, I ran 12 simulations. Each was a complete user-system dialogue across a different persona: a hobbyist deploying their first frontend app, a startup engineer migrating from one cloud platform to another, a platform engineer integrating into an enterprise infrastructure-as-code monorepo, a data scientist wrapping a fine-tuned model, and so on.
 
 Each simulation ran as a separate background sub-agent with a fresh context window and a strict prompt:
 
@@ -48,7 +48,7 @@ Each simulation ran as a separate background sub-agent with a fresh context wind
 - Every system turn is annotated with two metadata fields: what intent is being communicated, and what UI composition is being emitted.
 - Every three to five turns, the simulation adds a value-add callout: "A generic prompt would have done X here; this system did Y because Z."
 
-The output is a transcript document. Not an authored exemplar. An emergent dialogue.
+The output is a transcript document: an emergent dialogue, not a scripted one.
 
 ## What a transcript looks like
 
@@ -65,7 +65,7 @@ The simulation calls a repo-inspection tool on the URL, then composes a single c
 
 // COMPOSITION: Plan-summary card + cost card + "what I'm doing for
 //   you" card, composed as a Column of three Cards. Pure primitives
-//   from the catalog, no specialised component.
+//   from the catalog, no specialized component.
 ```
 
 The system emits the plan card with every default in-line: region, branch, identity model, ingress, observability. Sam can object to any of them without being asked. Then comes the value-add callout:
@@ -91,7 +91,7 @@ Authoring a sample dialogue top-down is fast, but the author's bias creeps in. Y
 
 Turn-by-turn role-play forces honesty. When the simulation has to decide what tool the system would call before it writes the response, you catch the moments where the existing prompt has no rule for the situation. When the persona is required to push back, you discover the prompts that work only when the user agrees with everything the system says.
 
-Three patterns emerged that authored exemplars rarely catch:
+Three patterns emerged that authored examples rarely catch:
 
 - **Silent scope creep.** The framework says "ask up to three questions"; the simulation has the persona say something ambiguous on turn one, and the system asks a fourth. The prompt didn't encode the cap-of-three rule explicitly. It relied on the model to remember.
 - **Drift between prompt and tool surface.** The prompt says "call the quota tool when needed"; the simulation reveals there isn't a quota tool, only a general resource lookup. The prompt referenced a capability the system doesn't have.
@@ -105,15 +105,15 @@ A simulation transcript is more useful than a list of fixes if you annotate it w
 2. **Composition.** The structural shape of any UI emitted, written as a primitive expression. `Card[Text(h2)+List+Row[Button(approve)+Button(revise)]]` is a recipe. "Show a card" is not.
 3. **Value-add callout.** Every few turns, an explicit comparison to what a generic prompt would have done in the same spot. These callouts are what you point at when someone asks what the system does that a generic prompt can't. They're free if you require them during the simulation rather than retrofitting them afterward.
 
-The annotations turn transcripts into three artefacts at once:
+The annotations turn transcripts into three artifacts at once:
 
-- **Behavioral specifications** for the agents. After the prompt is rewritten, you can replay the persona's opener and check whether the new agent produces the annotated structure.
+- **Behavioral specifications** for the agents. After the prompt is rewritten, replay the persona's opener and check whether the new agent produces the annotated structure.
 - **A recipe catalog** for the composition library. Patterns that recur across multiple transcripts are candidates for first-class components.
 - **Evidence for stakeholders** that the system delivers something a generic prompt can't. The value-add callouts become bullet points in your next product review.
 
 ## What the simulations gave me
 
-12 simulations, ~95,000 words of transcripts, about 2 hours of background sub-agent runtime (plus another 40 minutes for a meta-aggregation pass that synthesised the findings). The output was 37 discrete work items in the issue tracker, each tied to one or more transcripts that motivated it.
+12 simulations, ~95,000 words of transcripts, about 2 hours of background sub-agent runtime (plus another 40 minutes for a meta-aggregation pass that synthesized the findings). The output was 37 discrete work items in the issue tracker, each tied to one or more transcripts that motivated it.
 
 Three categories dominated:
 
@@ -129,7 +129,7 @@ The single most useful finding came from cross-referencing surprises across tran
 
 The orchestration ran in [GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli) with Claude Opus 4.7 as the main agent. Each simulation was a separate background sub-agent spawned via the `task` tool, with its own context window. Sub-agents ran on Claude Sonnet (the Copilot CLI default for general-purpose agents). I prompted each sub-agent with a persona brief, scenario constraints, the strict turn-by-turn methodology described above, and the annotation rules.
 
-The multi-agent system the simulations targeted is one I've been developing in parallel as a custom setup I call [**Squad**](https://github.com/sabbour/squad): a roster of named role-bound agents (lead, frontend, backend, security reviewer, code reviewer, devops, docs, monitor) with explicit handoff and consultation wiring. Squad sits inside a project repo as a `.squad/` directory and the agents are invoked via Copilot CLI's custom-agents mechanism. The simulations exercised the Squad agents' system prompts in flow, then a meta-aggregation pass synthesised findings into discrete GitHub issues that Squad members could pick up.
+The multi-agent system the simulations targeted is one I've been developing in parallel as a custom setup I call [**Squad**](https://github.com/sabbour/squad): a roster of named role-bound agents (lead, frontend, backend, security reviewer, code reviewer, devops, docs, monitor) with explicit handoff and consultation wiring. Squad sits inside a project repo as a `.squad/` directory and the agents are invoked via Copilot CLI's custom-agents mechanism. The simulations exercised the Squad agents' system prompts in flow, then a meta-aggregation pass synthesized findings into discrete GitHub issues that Squad members could pick up.
 
 A separate post about Squad itself, including the conventions and the wiring graph, is on the way.
 
@@ -141,7 +141,7 @@ It's slow for what it is, but cheaper than getting it wrong after shipping. Each
 
 It's not free. Each sub-agent run consumes tokens, and a dozen simulations plus a meta-aggregation pass over the transcripts is a noticeable cost.
 
-It requires discipline. The temptation to short-circuit ("the persona obviously wouldn't push back here") destroys the technique's value. Every simulation needs at least two genuine pushbacks. Without them, you get an authored exemplar in disguise.
+It requires discipline. The temptation to short-circuit ("the persona obviously wouldn't push back here") destroys the technique's value. Every simulation needs at least two genuine pushbacks. Without them, you get a scripted example in disguise.
 
 It does not validate the prompts you eventually write. The transcripts tell you what conversations the system needs to support. They do not run themselves against your new prompts. You either build a regression harness that compares new agent output to the transcripts, or you accept that the transcripts are specifications and a human reviewer judges fit.
 
@@ -154,7 +154,7 @@ Two ground rules:
 - Each simulation is a separate sub-agent invocation. Different context windows, no cross-contamination.
 - The persona briefs are written as constraint-and-voice descriptions, not scripts. The persona must be free to react.
 
-The simulations are the input. The agent prompts are the output. Treat them as separate artefacts. Maintain the simulations the way you maintain integration tests, and you will catch system-level drift the same way.
+The simulations are the input. The agent prompts are the output. Treat them as separate artifacts. Maintain the simulations the way you maintain integration tests, and you will catch system-level drift the same way.
 
 ## Next steps
 
