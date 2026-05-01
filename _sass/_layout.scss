@@ -488,6 +488,26 @@
   }
 }
 
+
+// ─── Mermaid diagrams ────────────────────────────────
+.mermaid {
+  margin: 2em 0;
+  text-align: center;
+  background: $bg;
+  overflow-x: auto;
+
+  svg {
+    max-width: 100%;
+    height: auto;
+    font-family: $font-sans !important;
+  }
+
+  // Hide the raw text while Mermaid renders
+  &:not([data-processed="true"]) {
+    color: transparent;
+  }
+}
+
 // ─── Responsive ──────────────────────────────────────
 @media (max-width: 900px) {
   .post-card {
