@@ -21,5 +21,70 @@
 <body>
     {{ content }}
     {% include footer.html %}
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+      const mermaidBlocks = document.querySelectorAll('pre code.language-mermaid');
+      if (mermaidBlocks.length > 0) {
+        mermaid.initialize({
+          startOnLoad: false,
+          securityLevel: 'strict',
+          theme: 'base',
+          themeVariables: {
+            // Typography
+            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+            fontSize: '14px',
+
+            // Core palette (matches _variables.scss)
+            background: '#ffffff',
+            primaryColor: '#f4fafe',
+            primaryTextColor: '#15171a',
+            primaryBorderColor: '#3eb0ef',
+            secondaryColor: '#eaf6fd',
+            secondaryTextColor: '#15171a',
+            secondaryBorderColor: '#26a8ed',
+            tertiaryColor: '#f7fbfd',
+            tertiaryTextColor: '#333333',
+            tertiaryBorderColor: '#e5eff5',
+
+            lineColor: '#738a94',
+            textColor: '#333333',
+            mainBkg: '#f4fafe',
+            nodeBorder: '#3eb0ef',
+            clusterBkg: '#f7fbfd',
+            clusterBorder: '#e5eff5',
+            titleColor: '#15171a',
+            edgeLabelBackground: '#ffffff',
+
+            // Sequence diagrams
+            actorBkg: '#f4fafe',
+            actorBorder: '#3eb0ef',
+            actorTextColor: '#15171a',
+            actorLineColor: '#738a94',
+            signalColor: '#333333',
+            signalTextColor: '#333333',
+            labelBoxBkgColor: '#eaf6fd',
+            labelBoxBorderColor: '#3eb0ef',
+            labelTextColor: '#15171a',
+            loopTextColor: '#15171a',
+            noteBkgColor: '#fff8d6',
+            noteBorderColor: '#e5d27a',
+            noteTextColor: '#15171a',
+            activationBkgColor: '#eaf6fd',
+            activationBorderColor: '#26a8ed'
+          }
+        });
+
+        mermaidBlocks.forEach((block) => {
+          const container = document.createElement('div');
+          container.className = 'mermaid';
+          container.textContent = block.textContent;
+          const pre = block.closest('pre');
+          pre.parentNode.replaceChild(container, pre);
+        });
+
+        mermaid.run({ querySelector: '.mermaid' });
+      }
+    </script>
 </body>
 </html>
