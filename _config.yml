@@ -23,3 +23,5 @@ exclude:
   - package-lock.json
   - scripts
   - pages/tags.md
+include:
+  - .well-known
