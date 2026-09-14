@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sabbour/agentweaver/dev/docs/diagrams/src/graph-spec.schema.json",
+  "kind": "sequence",
+  "title": "From a request to a governed agent workflow",
+  "alt": "A sequence diagram showing a person describing work to the Agentweaver coordinator, the coordinator proposing a team and workflow, the person confirming the plan, then the deterministic workflow dispatching sandboxed agent work and pausing for an approval decision with evidence.",
+  "autonumber": true,
+  "participants": [
+    {
+      "id": "person",
+      "label": "Person",
+      "subLabel": "UI, assistant, editor, or CLI",
+      "icon": "globe",
+      "badge": { "text": "Intent", "tone": "lavender" }
+    },
+    {
+      "id": "coordinator",
+      "label": "Agentweaver coordinator",
+      "subLabel": "Control plane and workflow ownership",
+      "icon": "route",
+      "badge": { "text": "Orchestration", "tone": "green" }
+    },
+    {
+      "id": "sandbox",
+      "label": "Agent sandbox",
+      "subLabel": "Isolated tools and model session",
+      "icon": "bot",
+      "badge": { "text": "Execution", "tone": "marigold" }
+    }
+  ],
+  "steps": [
+    { "type": "message", "from": "person", "to": "coordinator", "label": "Describe the desired outcome" },
+    { "type": "activation", "participant": "coordinator", "action": "start" },
+    { "type": "message", "from": "coordinator", "to": "coordinator", "label": "Propose roles, skills, and workflow" },
+    { "type": "message", "from": "coordinator", "to": "person", "label": "Show the proposed plan and gates" },
+    { "type": "message", "from": "person", "to": "coordinator", "label": "Revise or confirm the plan" },
+    { "type": "note", "over": ["coordinator", "sandbox"], "label": "Confirmation makes the workflow deterministic, with explicit gates." },
+    { "type": "message", "from": "coordinator", "to": "sandbox", "label": "Dispatch the next ready stage" },
+    { "type": "activation", "participant": "sandbox", "action": "start" },
+    { "type": "message", "from": "sandbox", "to": "coordinator", "label": "Return evidence, artifacts, and cost" },
+    { "type": "activation", "participant": "sandbox", "action": "end" },
+    { "type": "message", "from": "coordinator", "to": "person", "label": "Pause for approval with evidence" },
+    { "type": "activation", "participant": "coordinator", "action": "end" }
+  ]
+}

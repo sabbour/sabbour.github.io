@@ -1,0 +1,59 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sabbour/agentweaver/dev/docs/diagrams/src/graph-spec.schema.json",
+  "kind": "graph",
+  "title": "The path to approved work",
+  "alt": "The approval path in a simplified software workflow: confirm the outcome, execute scoped specialist work, assemble the results, run combined checks, and obtain human approval before merge.",
+  "direction": "LR",
+  "nodes": [
+    {
+      "id": "confirm",
+      "label": "Confirm outcome",
+      "subLabel": "Scope and assumptions",
+      "icon": "globe",
+      "badge": { "text": "Human gate", "tone": "lavender" }
+    },
+    {
+      "id": "work",
+      "label": "Specialist work",
+      "subLabel": "Run-scoped workspaces",
+      "meta": "Parallel when independent",
+      "icon": "bot",
+      "badge": { "text": "Execution", "tone": "green" }
+    },
+    {
+      "id": "assemble",
+      "label": "Assemble results",
+      "subLabel": "One combined diff",
+      "icon": "branch",
+      "badge": { "text": "Assembly", "tone": "teal" }
+    },
+    {
+      "id": "checks",
+      "label": "Combined checks",
+      "subLabel": "RAI, then Build & Test",
+      "icon": "box",
+      "badge": { "text": "Checks", "tone": "marigold" }
+    },
+    {
+      "id": "review",
+      "label": "Human review",
+      "subLabel": "Approve, revise, or decline",
+      "icon": "globe",
+      "badge": { "text": "Human gate", "tone": "lavender" }
+    },
+    {
+      "id": "merge",
+      "label": "Merge",
+      "subLabel": "Only approved output",
+      "icon": "branch",
+      "badge": { "text": "Accepted", "tone": "teal" }
+    }
+  ],
+  "edges": [
+    { "from": "confirm", "to": "work" },
+    { "from": "work", "to": "assemble" },
+    { "from": "assemble", "to": "checks" },
+    { "from": "checks", "to": "review" },
+    { "from": "review", "to": "merge", "label": "Approve" }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sabbour/agentweaver/dev/docs/diagrams/src/graph-spec.schema.json",
+  "kind": "graph",
+  "title": "Agent teams on Kubernetes: workflow engine, governance, and execution",
+  "alt": "A conceptual diagram of how the Agentweaver API and MCP server, workflow engine and coordinator, Microsoft Agent Framework, Agent Governance Toolkit, GitHub Copilot SDK, Kubernetes, NetworkPolicy, Microsoft Execution Containers, agent sandboxes, snapshots, durable state and events, workspace, project memory, GitHub, model endpoints, identity and secrets, and observability and telemetry fit together. Agentweaver defines and advances governed workflow stages; the framework, governance toolkit, and Copilot SDK provide agent-runtime capabilities; Kubernetes provides isolated execution; connected services and durable context preserve evidence, files, decisions, repository work, model access, credentials, and telemetry.",
+  "brand": {
+    "name": "Agentweaver",
+    "subtitle": "A governed workflow engine for teams of agents",
+    "logo": "/agentweaver.png"
+  },
+  "direction": "TB",
+  "groups": [
+    { "id": "control", "label": "Agentweaver control plane", "tier": 1 },
+    { "id": "agent-platform", "label": "Agent runtime and governance", "tier": 1 },
+    { "id": "kubernetes", "label": "Kubernetes execution and isolation", "tier": 1 },
+    { "id": "connected", "label": "Connected services and durable context", "tier": 1 }
+  ],
+  "nodes": [
+    {
+      "id": "framework",
+      "label": "Microsoft Agent Framework",
+      "subLabel": "Graphs, checkpoints, and resume",
+      "icon": "route",
+      "badge": { "text": "Workflow runtime", "tone": "teal" },
+      "group": "agent-platform"
+    },
+    {
+      "id": "governance",
+      "label": "Agent Governance Toolkit",
+      "subLabel": "Policy for tools, files, and execution",
+      "icon": "key",
+      "badge": { "text": "Governance", "tone": "marigold" },
+      "group": "agent-platform"
+    },
+    {
+      "id": "copilot-sdk",
+      "label": "GitHub Copilot SDK",
+      "subLabel": "Model sessions and provider configuration",
+      "icon": "bot",
+      "badge": { "text": "Agent runtime", "tone": "lavender" },
+      "group": "agent-platform"
+    },
+    {
+      "id": "agent-runtime",
+      "label": "Governed agent runtime",
+      "subLabel": "Combines workflow, policy, and model sessions",
+      "icon": "bot",
+      "badge": { "text": "Execution contract", "tone": "green" },
+      "group": "agent-platform"
+    },
+    {
+      "id": "api",
+      "label": "API and MCP server",
+      "subLabel": "Projects, runs, approvals, and event streams",
+      "icon": "server",
+      "badge": { "text": "Control surface", "tone": "teal" },
+      "group": "control"
+    },
+    {
+      "id": "workflow-engine",
+      "label": "Agentweaver workflow engine",
+      "subLabel": "Stages, dependencies, gates, and state",
+      "icon": "branch",
+      "badge": { "text": "Deterministic workflow", "tone": "green" },
+      "group": "control"
+    },
+    {
+      "id": "coordinator",
+      "label": "Agentweaver coordinator",
+      "subLabel": "Advances ready work and approval gates",
+      "icon": "route",
+      "badge": { "text": "Control plane", "tone": "teal" },
+      "group": "control"
+    },
+    {
+      "id": "state",
+      "label": "Durable state and events",
+      "subLabel": "Evidence, approvals, cost, and replay",
+      "icon": "database",
+      "badge": { "text": "Observability", "tone": "teal" },
+      "group": "connected"
+    },
+    {
+      "id": "workspace",
+      "label": "Workspace",
+      "subLabel": "Scoped source, artifacts, and output",
+      "icon": "box",
+      "badge": { "text": "Files", "tone": "neutral" },
+      "group": "connected"
+    },
+    {
+      "id": "memory",
+      "label": "Project memory",
+      "subLabel": "Curated context and prior decisions",
+      "icon": "database",
+      "badge": { "text": "Context", "tone": "teal" },
+      "group": "connected"
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "subLabel": "Repositories, issues, and pull requests",
+      "icon": "branch",
+      "badge": { "text": "Integration", "tone": "lavender" },
+      "group": "connected"
+    },
+    {
+      "id": "model-endpoint",
+      "label": "Model endpoint",
+      "subLabel": "GitHub Copilot or compatible provider",
+      "icon": "globe",
+      "badge": { "text": "Model access", "tone": "lavender" },
+      "group": "connected"
+    },
+    {
+      "id": "identity",
+      "label": "Identity and secrets",
+      "subLabel": "Authentication, tokens, and connection settings",
+      "icon": "key",
+      "badge": { "text": "Credentials", "tone": "marigold" },
+      "group": "connected"
+    },
+    {
+      "id": "telemetry",
+      "label": "Observability and telemetry",
+      "subLabel": "Metrics, traces, logs, and alerts",
+      "icon": "database",
+      "badge": { "text": "Operations", "tone": "teal" },
+      "group": "connected"
+    },
+    {
+      "id": "kubernetes-control",
+      "label": "Kubernetes",
+      "subLabel": "Schedules the execution boundary",
+      "icon": "server",
+      "badge": { "text": "Platform", "tone": "green" },
+      "group": "kubernetes"
+    },
+    {
+      "id": "execution-containers",
+      "label": "Microsoft Execution Containers",
+      "subLabel": "Reusable isolated agent compute",
+      "icon": "box",
+      "badge": { "text": "Execution", "tone": "lavender" },
+      "group": "kubernetes"
+    },
+    {
+      "id": "snapshots",
+      "label": "Snapshots",
+      "subLabel": "Prebuilt sandbox capacity",
+      "icon": "database",
+      "badge": { "text": "Fast start", "tone": "teal" },
+      "group": "kubernetes"
+    },
+    {
+      "id": "sandboxes",
+      "label": "Agent sandboxes",
+      "subLabel": "Short-lived environment for agent tools",
+      "icon": "bot",
+      "badge": { "text": "Isolated work", "tone": "green" },
+      "group": "kubernetes"
+    },
+    {
+      "id": "network-policy",
+      "label": "NetworkPolicy",
+      "subLabel": "Default-deny ingress and egress",
+      "icon": "key",
+      "badge": { "text": "Network boundary", "tone": "marigold" },
+      "group": "kubernetes"
+    }
+  ],
+  "edges": [
+    { "from": "api", "to": "workflow-engine", "label": "Create and steer runs" },
+    { "from": "workflow-engine", "to": "framework", "label": "Bind workflow stages" },
+    { "from": "workflow-engine", "to": "coordinator", "label": "Advance ready work" },
+    { "from": "coordinator", "to": "governance", "label": "Apply execution policy" },
+    { "from": "framework", "to": "agent-runtime", "label": "Run workflows" },
+    { "from": "governance", "to": "agent-runtime", "label": "Govern tool use" },
+    { "from": "copilot-sdk", "to": "agent-runtime", "label": "Create model sessions" },
+    { "from": "agent-runtime", "to": "kubernetes-control", "label": "Request isolated execution" },
+    { "from": "sandboxes", "to": "state", "label": "Emit activity and results" },
+    { "from": "sandboxes", "to": "workspace", "label": "Read and write scoped files", "undirected": true },
+    { "from": "sandboxes", "to": "github", "label": "Perform repository work" },
+    { "from": "state", "to": "telemetry", "label": "Publish telemetry" },
+    { "from": "kubernetes-control", "to": "execution-containers", "label": "Schedule and operate" },
+    { "from": "snapshots", "to": "execution-containers", "label": "Prepare capacity", "undirected": true },
+    { "from": "execution-containers", "to": "sandboxes", "label": "Launch isolated compute" },
+    { "from": "network-policy", "to": "sandboxes", "label": "Constrain connections", "undirected": true }
+  ]
+}
