@@ -29,7 +29,7 @@ The workflows are inspectable and editable too. Generate a draft, adjust its ste
 
 The coordinator helps clarify the goal, with a chance to confirm or revise its understanding before execution. It stores a plan and dispatches work as dependencies finish. The planning conversation doesn't have to stay alive to keep the team moving.
 
-[![A person describes the work, reviews the coordinator's proposed plan and gates, and confirms or revises it. The coordinator dispatches ready work to a sandbox, collects results, and returns for approval.](/assets/images/2026-09-11-introducing-agentweaver/blog-agentweaver-coordinator.png)](/assets/images/2026-09-11-introducing-agentweaver/blog-agentweaver-coordinator.png)
+[![A person describes the work, reviews the coordinator's proposed plan and gates, and confirms or revises it. The coordinator dispatches ready work to a sandbox, collects results, and returns for approval.](/assets/images/2026-09-13-introducing-agentweaver/blog-agentweaver-coordinator.png)](/assets/images/2026-09-13-introducing-agentweaver/blog-agentweaver-coordinator.png)
 
 
 For software, this is the "inner agentic developer lifecycle" I wanted: planning, implementation, testing, review, and revision before publishing to GitHub. The default workflow applies safety and human review before attempting a merge and pull request, then records the outcome. GitHub CI and team review still apply afterward.
@@ -52,7 +52,7 @@ Today, [PostgreSQL holds much of Agentweaver's state](https://sabbour.me/agentwe
 
 Run storage, event streams, checkpoints, workspace access, and sandbox execution already sit behind interfaces. Those give specialized providers places to take over while preserving the guarantees the workflow relies on. The picture below captures that broader direction, including capabilities still to be built.
 
-[![Platform view linking Agentweaver's control plane to workflow, model, and governance components; isolated execution sits above durable events, workspaces, memory, and connected services. The execution-container and snapshot path is conceptual.](/assets/images/2026-09-11-introducing-agentweaver/blog-agentweaver-microsoft-agent-platform.png)](/assets/images/2026-09-11-introducing-agentweaver/blog-agentweaver-microsoft-agent-platform.png)
+[![Platform view linking Agentweaver's control plane to workflow, model, and governance components; isolated execution sits above durable events, workspaces, memory, and connected services. The execution-container and snapshot path is conceptual.](/assets/images/2026-09-13-introducing-agentweaver/blog-agentweaver-microsoft-agent-platform.png)](/assets/images/2026-09-13-introducing-agentweaver/blog-agentweaver-microsoft-agent-platform.png)
 
 Agentweaver already uses [agent-sandbox](https://github.com/kubernetes-sigs/agent-sandbox) claims and warm pools on AKS. I'd like to build on that toward an agent substrate that assigns ready work to suitable compute and releases capacity when agents are waiting.
 
