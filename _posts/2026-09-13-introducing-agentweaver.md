@@ -23,9 +23,21 @@ I needed a deterministic, yet dynamic, workflow. The runtime would enforce depen
 
 Suppose you have an idea for a small app. It probably doesn't arrive as a complete specification. In Agentweaver, capture it on the board, add context, and prioritize it alongside other ideas. Move it to Ready when it's defined well enough for the team to pick up.
 
+[![Agentweaver project board showing sample tasks in Backlog and separate Ready, Active, and Done columns.](/assets/images/2026-09-13-introducing-agentweaver/project-board.png)](/assets/images/2026-09-13-introducing-agentweaver/project-board.png)
+
+*The project board, with sample work from the [Agentweaver docs](https://sabbour.me/agentweaver/).*
+
 You don't have to assemble the team from scratch. A [project blueprint](https://sabbour.me/agentweaver/guide/blueprints) brings together specialized roles, workflows, and review rules. Start with a familiar setup, then adapt the team and its skills. For unfamiliar work, describe the goal and generate a blueprint to review before applying it.
 
+[![Agentweaver team-generation review showing proposed roles for product management, design, architecture, implementation, and documentation, with options to remove members or confirm the team.](/assets/images/2026-09-13-introducing-agentweaver/casting-wizard-review.png)](/assets/images/2026-09-13-introducing-agentweaver/casting-wizard-review.png)
+
+*Reviewing a generated team before adding it to the project.*
+
 The workflows are inspectable and editable too. Generate a draft, adjust its steps and gates, and save it once it passes validation. Pick a workflow yourself or let the coordinator choose from the project's available options.
+
+[![Agentweaver workflow editor showing research, synthesis, stakeholder review, and a review gate with approval, decline, and revision paths. The selected node's prompt is open in the inspector.](/assets/images/2026-09-13-introducing-agentweaver/workflow-editor.png)](/assets/images/2026-09-13-introducing-agentweaver/workflow-editor.png)
+
+*A custom research workflow, with explicit review and revision paths.*
 
 The coordinator helps clarify the goal, with a chance to confirm or revise its understanding before execution. It stores a plan and dispatches work as dependencies finish. The planning conversation doesn't have to stay alive to keep the team moving.
 
